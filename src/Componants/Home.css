@@ -1,0 +1,258 @@
+#home-container {
+  display: flex;
+  gap: 1px;
+  height: 39rem;
+  justify-content: center;
+  color: white;
+  font-family: cursive;
+}
+
+/* Left Section */
+.left {
+  width: 50rem;
+  text-align: center;
+  margin-top: 30px;
+  animation: info 2s;
+}
+
+.left-text {
+  font-size: x-large;
+  margin-top: 6rem;
+  margin-left: 20px;
+  font-weight: bold;
+  width: 62%;
+  text-shadow: 1px 1px 5px pink;
+}
+
+.left-text-name {
+  font-size: 65px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: -10px;
+  text-shadow: 1px 1px 5px pink;
+}
+
+.left-text-info {
+  font-size: 25px;
+  height: 50px;
+  margin-top: -55px;
+  text-shadow: 1px 1px 5px pink;
+}
+
+/* Buttons Container */
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 20px;
+  margin-top: 40px;
+  align-items: center;
+}
+
+/* Button Styling */
+.btn {
+  width: 15rem;
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.4s ease;
+  border: 1px solid pink;
+  color: white;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine Animation */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 125%;
+}
+
+.btn:hover {
+  background-color: pink;
+  color: black;
+  box-shadow: 0 0 15px pink;
+  transform: scale(1.05);
+}
+
+/* Right Section */
+.right {
+  width: 35rem;
+}
+
+.right img {
+  width: 80%;
+  margin-top: 70px;
+  margin-left: 90px;
+  border: 5px solid pink;
+  border-radius: 300px;
+  box-shadow: 0 0 25px pink;
+  animation: Rushi 2s linear infinite;
+}
+
+/* Animations */
+@keyframes Rushi {
+  0% { transform: translateY(0px); background-color: rgb(2, 254, 195); }
+  50% { transform: translateY(-20px); background-color: blue; }
+  75% { transform: translateY(-10px); background-color: red; }
+  100% { transform: translateY(0px); background-color: pink; }
+}
+
+@keyframes info {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ============ RESPONSIVE BREAKPOINTS ============ */
+
+/* Tablets & Medium Screens (≤ 768px) */
+@media (max-width: 768px) {
+  #home-container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .left {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .left-text {
+    font-size: 20px;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  .left-text-name {
+    font-size: 38px;
+    margin-top: 10px;
+  }
+
+  .left-text-info {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .right {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .right img {
+    width: 75%;
+    margin: 0;
+    border-radius: 50%;
+  }
+}
+
+/* Large Phones (≤ 425px) */
+@media (max-width: 425px) {
+  .left-text-name {
+    font-size: 32px;
+  }
+
+  .left-text {
+    font-size: 18px;
+  }
+
+  .left-text-info {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .btn {
+    width: 90%;
+    font-size: 15px;
+    padding: 9px;
+  }
+
+  .right img {
+    width: 85%;
+  }
+}
+
+/* Medium Phones (≤ 375px) */
+@media (max-width: 375px) {
+  .left-text-name {
+    font-size: 28px;
+  }
+
+  .left-text {
+    font-size: 16px;
+  }
+
+  .left-text-info {
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 95%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .right img {
+    width: 90%;
+  }
+}
+
+/* Small Phones (≤ 320px) */
+@media (max-width: 320px) {
+  .left-text-name {
+    font-size: 24px;
+  }
+
+  .left-text {
+    font-size: 14px;
+  }
+
+  .left-text-info {
+    font-size: 13px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 13px;
+    padding: 7px;
+  }
+
+  .right img {
+    width: 95%;
+  }
+}
