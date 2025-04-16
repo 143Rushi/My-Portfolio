@@ -24,6 +24,7 @@ function App() {
 
       {/* These can be removed if they’re already in Routes */}
       <Skill />
+      <Projects/>
       <Contact />
     </Router>
   );

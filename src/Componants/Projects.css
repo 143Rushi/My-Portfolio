@@ -1,4 +1,209 @@
-#projects{
-    height: 40rem;
-    border: 2px solid pink;
-}
+/* Projects Section */
+.projects-container {
+    padding: 4rem 2rem;
+    background: black;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s ease forwards;
+  }
+  
+  .projects-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8),
+                 0 0 20px rgba(255, 105, 180, 0.6);
+  }
+  
+  .projects-title.visible {
+    animation: fadeInUp 1.2s ease forwards, float 3s ease-in-out infinite;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(4px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  /* Projects Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    position: relative;
+  }
+  
+  /* Project Card */
+  .project-card {
+    background: #1e1e1e;
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid #2e2e2e;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .project-card.visible {
+    animation: fadeSlideIn 0.8s ease forwards;
+  }
+  
+  .project-card.visible:nth-child(1) { animation-delay: 0.2s; }
+  .project-card.visible:nth-child(2) { animation-delay: 0.4s; }
+  .project-card.visible:nth-child(3) { animation-delay: 0.6s; }
+  
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(4px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  
+  .project-card:hover {
+    transform: translateY(-40px);
+    box-shadow: 0 0 30px rgba(255, 62, 108, 0.3);
+  }
+  
+  /* Project Image */
+  .project-image {
+    width: 100%;
+    height: 140px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+  
+  /* Project Text */
+  .project-card h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  
+  .project-card p {
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  .btn, .code-btn {
+    padding: 0.6rem 1.2rem;
+    background: #ff3e6c;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+    display: inline-block;
+    margin-top: 0.8rem;
+  }
+  
+  .btn:hover, .code-btn:hover {
+    background-color: #e82a59;
+    box-shadow: 0 0 8px #ff3e6c80;
+  }
+  
+  /* Specific Style for View Code Button */
+  .code-btn {
+    background: #6a1b9a;
+  }
+  
+  .code-btn:hover {
+    background-color: #4a148c;
+  }
+  
+  /* Tech Stack - Outside Card (Hidden Initially) */
+  .tech-stack-out {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    bottom: -50px;
+    background-color: #1a1a1a;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 0;
+    pointer-events: none;
+    border: 1px solid #2a2a2a;
+  }
+  
+  /* Hover Reveal Tech Stack */
+  .project-card:hover .tech-stack-out {
+    opacity: 1;
+    transform: translate(-50%, 0px);
+  }
+  
+  /* Skill Tags */
+  .tech-stack-out span {
+    background-color: #2e2e2e;
+    color: #ff3e6c;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .projects-title {
+      font-size: 2rem;
+    }
+  
+    .project-card {
+      padding: 1rem;
+    }
+  
+    .project-image {
+      height: 120px;
+    }
+  
+    .tech-stack-out {
+      flex-wrap: wrap;
+      padding: 0.5rem;
+      bottom: -60px;
+    }
+  }
+  
