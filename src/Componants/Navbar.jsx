@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home-container');
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleScroll = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActiveSection(id);
-      setMenuOpen(false); // close on mobile
     }
   };
 
-  // Optional: Highlight nav item on scroll
   useEffect(() => {
-    const sections = ['home-container', 'skills', 'projects', 'contact'];
+    const sectionIds = ['home-container', 'skills', 'projects', 'contact'];
 
     const onScroll = () => {
-      const scrollPos = window.scrollY + 200;
-      for (let id of sections) {
+      const scrollPosition = window.scrollY + 200;
+      for (let id of sectionIds) {
         const section = document.getElementById(id);
-        if (section && scrollPos >= section.offsetTop) {
+        if (section && scrollPosition >= section.offsetTop) {
           setActiveSection(id);
         }
       }
@@ -37,16 +34,7 @@ const Navbar = () => {
       <div className="portfolio" onClick={() => handleScroll('home-container')}>
         Portfolio
       </div>
-
-      <div className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-
-
-      <ul className={menuOpen ? 'nav-links open' : 'nav-links'}>
+      <ul className="nav-links">
         <li
           className={activeSection === 'home-container' ? 'active' : ''}
           onClick={() => handleScroll('home-container')}

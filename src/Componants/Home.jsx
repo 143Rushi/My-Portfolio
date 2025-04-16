@@ -18,13 +18,13 @@ const Home = () => {
         <p className="left-text-name">Mr. Rushi Dhoble</p>
         <div>
           <pre className="left-text-info">
-            Front-End Developer 🚀 | React.JS Developer ⚛️
+            FrontEnd Developer🚀|React.JS Developer⚛️
           </pre>
         </div>
 
         {/* Buttons */}
         <div className="btn-container">
-          <a href="/Rushi.pdf" download="Rushi_Dhobale_Resume.pdf" className="btn download-btn">
+          <a href="/Resume.docx" download="Resume.docx" className="btn download-btn">
             Download Resume
           </a>
           <button onClick={handleScroll} className="btn contact-btn">
